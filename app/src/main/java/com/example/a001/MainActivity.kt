@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editView: EditText
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         button = findViewById(R.id.button)
         button.setOnClickListener {
             count()
+        }
+        editView.addTextChangedListener { text ->
+            textView.text = text
         }
     }
 
