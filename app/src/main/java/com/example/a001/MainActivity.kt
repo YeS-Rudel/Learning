@@ -1,17 +1,21 @@
 package com.example.a001
 
+import android.content.Intent
+import android.content.Intent.*
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import android.net.Uri
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editView: EditText
     private lateinit var textView: TextView
     private lateinit var button: Button
-    private var counter: String = ""
+//    private var counter: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,5 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun count () {
         textView.text = editView.text
+        val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+editView.text))
+        startActivity(intent)
     }
 }
