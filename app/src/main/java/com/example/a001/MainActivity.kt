@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun count () {
-        textView.text = editView.text
-        val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+editView.text))
+        textView.text = check(editView.text.toString())
+        val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+textView.text))
         startActivity(intent)
     }
 
