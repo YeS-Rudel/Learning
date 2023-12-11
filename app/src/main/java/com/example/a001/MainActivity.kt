@@ -10,13 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import android.net.Uri
 
-private  const val mask: String = "+9(999)99-99-999"
+private  const val mask: String = "+9 (999) 99-99-999"
 private const val NUMBER_MASK = '9'
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editView: EditText
     private lateinit var textView: TextView
     private lateinit var button: Button
+
+    private var current = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +30,30 @@ class MainActivity : AppCompatActivity() {
             count()
         }
         editView.addTextChangedListener { text ->
-            textView.text = check(text.toString())
+            if (text.toString() != current) {
+                if (text.toString().length  <= mask.length ) {
+                    check(getValue(text.toString()))
+                    textView.text = editView.text
+                } else {
+                    editView.setText(text.toString().substring(0, text.toString().length - 1))
+                    editView.setSelection(editView.length())
+                }
+            }
         }
     }
 
     private fun count () {
-        textView.text = check(editView.text.toString())
         val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+textView.text))
         startActivity(intent)
     }
 
-    private fun check(text: String) : String {
+    private fun getValue(text: String) : String {
+        return  text.filter { char ->
+            char.isDigit()
+        }
+    }
+
+    private fun check(text: String) {
         var value = ""
         var length = text.length
         var index = 0
@@ -54,6 +69,8 @@ class MainActivity : AppCompatActivity() {
                 index ++
             }
         }
-        return value
+        current = value
+        editView.setText(value)
+        editView.setSelection(editView.length())
     }
 }
