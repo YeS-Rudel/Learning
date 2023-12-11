@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         editView = findViewById(R.id.editTextText)
         button = findViewById(R.id.button)
         button.setOnClickListener {
-            count()
+            call()
         }
         editView.addTextChangedListener { text ->
             if (text.toString() != current) {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun count () {
+    private fun call () {
         val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+textView.text))
         startActivity(intent)
     }
