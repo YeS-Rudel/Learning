@@ -3,30 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:gravity="center"
     android:orientation="vertical"
-    >
-
-    <TextView
-        android:id="@+id/countTextView"
-        android:textSize="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoLink="phone" />
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:digits="0123456789"/>
+        android:layout_marginLeft="16pt"
+        android:layout_marginRight="16pt"
+        android:digits="0123456789"
+        android:hint="Номер телефона"
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Call"
-        />
+        android:text="Call" />
 
 </LinearLayout>
