@@ -7,17 +7,12 @@ import android.widget.EditText
 private const val mask: String = "+9 (999) 99-99-999"
 private const val NUMBER_MASK = '9'
 
-class MaskWorker(view: EditText, handler: (String) -> Unit) : TextWatcher {
+class MaskWorker(
+    private val view: EditText,
+    private var handler: (String) -> Unit,
+) : TextWatcher {
 
     private var current = ""
-    private val view: EditText = view
-    private var handler: (String) -> Unit = handler
-
-    private fun getValue(text: String): String {
-        return text.filter { char ->
-            char.isDigit()
-        }
-    }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -32,6 +27,12 @@ class MaskWorker(view: EditText, handler: (String) -> Unit) : TextWatcher {
                 view.setText(text.substring(0, text.length - 1))
                 view.setSelection(view.text.length)
             }
+        }
+    }
+
+    private fun getValue(text: String): String {
+        return text.filter { char ->
+            char.isDigit()
         }
     }
 
