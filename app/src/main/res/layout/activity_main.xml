@@ -11,8 +11,7 @@
         android:id="@+id/editTextText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16pt"
-        android:layout_marginRight="16pt"
+        android:layout_marginHorizontal="16dp"
         android:digits="0123456789"
         android:hint="Номер телефона"
         android:inputType="phone" />

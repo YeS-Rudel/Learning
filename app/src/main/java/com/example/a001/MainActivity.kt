@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun call() {
-        val intent = Intent(ACTION_DIAL, Uri.parse("tel:" + text))
+        val intent = Intent(ACTION_DIAL, Uri.parse("tel:$text"))
         startActivity(intent)
     }
 }

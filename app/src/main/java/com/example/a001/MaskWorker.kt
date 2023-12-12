@@ -53,7 +53,7 @@ class MaskWorker(
             }
         }
         current = value
-        handler(getValue(current))
+        handler(current)
         view.setText(value)
         view.setSelection(value.length)
     }
