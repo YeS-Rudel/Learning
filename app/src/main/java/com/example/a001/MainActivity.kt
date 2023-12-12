@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var watcher: MaskWorker
     private var text = ""
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun call() {
-        val intent = Intent(ACTION_DIAL, Uri.parse("tel:"+text))
+        val intent = Intent(ACTION_DIAL, Uri.parse("tel:" + text))
         startActivity(intent)
     }
 }
