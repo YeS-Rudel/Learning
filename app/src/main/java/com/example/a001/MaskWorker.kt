@@ -19,6 +19,22 @@ class MaskWorker(view: EditText, handler: (String) -> Unit) : TextWatcher {
         }
     }
 
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+    override fun afterTextChanged(s: Editable?) {
+        val text = s.toString()
+        if (text != current) {
+            if (text.length <= mask.length) {
+                check(getValue(text))
+            } else {
+                view.setText(text.substring(0, text.length - 1))
+                view.setSelection(view.text.length)
+            }
+        }
+    }
+
     private fun check(text: String) {
         var value = ""
         var length = text.length
@@ -39,21 +55,5 @@ class MaskWorker(view: EditText, handler: (String) -> Unit) : TextWatcher {
         handler(getValue(current))
         view.setText(value)
         view.setSelection(value.length)
-    }
-
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-    override fun afterTextChanged(s: Editable?) {
-        val text = s.toString()
-        if (text != current) {
-            if (text.length <= mask.length) {
-                check(getValue(text))
-            } else {
-                view.setText(text.substring(0, text.length - 1))
-                view.setSelection(view.text.length)
-            }
-        }
     }
 }
