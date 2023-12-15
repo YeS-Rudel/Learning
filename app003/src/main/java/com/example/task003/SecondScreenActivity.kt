@@ -2,9 +2,7 @@ package com.example.task003
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toolbar
 
 class SecondScreenActivity : AppCompatActivity() {
 
@@ -23,8 +21,5 @@ class SecondScreenActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-
-
-
     }
 }
