@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.task003.MainActivity.Companion.MAIN_TEXT
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             when (it.resultCode) {
                 SecondScreenActivity.RESULT_CODE -> {
-                    val text = it.data?.extras?.getString(MainActivity.MAIN_TEXT, "").orEmpty()
+                    val text = it.data?.extras?.getString(MAIN_TEXT, "").orEmpty()
                     editView.setText(text)
                 }
             }
