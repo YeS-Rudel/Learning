@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Task003</string>
+    <string name="Second_Screen_Placeholder_Text">Техт</string>
+    <string name="Second_Screen_Button_Title">Click</string>
 </resources>
