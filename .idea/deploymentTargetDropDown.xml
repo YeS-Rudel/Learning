@@ -24,6 +24,9 @@
       <entry key="app004">
         <State />
       </entry>
+      <entry key="openweather">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

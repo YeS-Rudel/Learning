@@ -17,3 +17,4 @@ rootProject.name = "001"
 include(":app")
 include(":app003")
 include(":app004")
+include(":openweather")

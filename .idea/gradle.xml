@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app003" />
             <option value="$PROJECT_DIR$/app004" />
+            <option value="$PROJECT_DIR$/openweather" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

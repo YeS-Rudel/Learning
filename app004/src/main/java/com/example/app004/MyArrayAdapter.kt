@@ -10,17 +10,18 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
+import com.example.app004.R.*
 
 class MyArrayAdapter(
     context: Context,
     private val values: Array<String>
 ) :
-    ArrayAdapter<String?>(context, R.layout.item_adapter, values) {
+    ArrayAdapter<String?>(context, layout.item_adapter, values) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater = LayoutInflater.from(parent.context)
-        val rowView: View = inflater.inflate(R.layout.item_adapter, parent, false)
-        val title = rowView.findViewById<View>(com.example.app004.R.id.titleItem) as TextView
-        val checkBox = rowView.findViewById<View>(com.example.app004.R.id.checkBoxItem) as CheckBox
+        val rowView: View = inflater.inflate(layout.item_adapter, parent, false)
+        val title = rowView.findViewById<View>(id.titleItem) as TextView
+        val checkBox = rowView.findViewById<View>(id.checkBoxItem) as CheckBox
         title.text = values[position]
         val item = values[position]
         checkBox.setOnCheckedChangeListener { _, isChecked ->
