@@ -12,14 +12,13 @@ import android.widget.CheckBox
 import android.widget.TextView
 
 class MyArrayAdapter(
-    private val context: Context,
-    values1: Int,
+    context: Context,
     private val values: Array<String>
 ) :
-    ArrayAdapter<String?>(context, com.example.app004.R.layout.item_adapter, values) {
+    ArrayAdapter<String?>(context, R.layout.item_adapter, values) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater = LayoutInflater.from(parent.context)
-        val rowView: View = inflater.inflate(com.example.app004.R.layout.item_adapter, parent, false)
+        val rowView: View = inflater.inflate(R.layout.item_adapter, parent, false)
         val title = rowView.findViewById<View>(com.example.app004.R.id.titleItem) as TextView
         val checkBox = rowView.findViewById<View>(com.example.app004.R.id.checkBoxItem) as CheckBox
         title.text = values[position]

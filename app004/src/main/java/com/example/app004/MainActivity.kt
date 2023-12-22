@@ -11,9 +11,8 @@ class MainActivity : AppCompatActivity() {
         val items = arrayOf("Коля", "Сергей", "Андрей", "Женя")
 
         val list = findViewById<ListView>(R.id.listView)
-        val adapter: MyArrayAdapter = MyArrayAdapter(
+        val adapter = MyArrayAdapter(
             this,
-            R.layout.item_adapter,
             items
         )
         list.adapter = adapter
