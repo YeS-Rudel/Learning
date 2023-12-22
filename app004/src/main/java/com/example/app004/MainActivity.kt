@@ -1,25 +1,22 @@
 package com.example.app004
+
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var items = arrayOf(
-        "Молоко", "Сметана", "Колбаска", "Сыр", "Мышка",
-        "Ананас", "Икра черная", "Икра кабачковая", "Яйцо"
-    )
+    private lateinit var list: androidx.recyclerview.widget.RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val list = findViewById<ListView>(R.id.listView)
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            android.R.layout.simple_list_item_multiple_choice, items
-        )
+        list = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.tableView)
+        val items = arrayOf("Коля", "Сергей", "Андрей", "Женя")
+        val adapter = ItemsAdapter(this, items)
+        list.hasFixedSize()
+        list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
     }
 }
