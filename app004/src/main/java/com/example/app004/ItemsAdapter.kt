@@ -13,7 +13,7 @@ import kotlin.properties.Delegates
 
 class ItemsAdapter: RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
-    var items: Array<String> by Delegates.observable(emptyArray()) { _, oldItems, newItems -> notifyDataSetChanged() }
+    var items: Array<String> by Delegates.observable(emptyArray()) { _, _, _ -> notifyDataSetChanged() }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
