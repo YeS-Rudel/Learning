@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.properties.Delegates
 
-class ItemsAdapter(
-    private  val items: Array<String>
-): RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+class ItemsAdapter: RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+
+    var items: Array<String> by Delegates.observable(emptyArray()) { _, oldItems, newItems -> notifyDataSetChanged() }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)

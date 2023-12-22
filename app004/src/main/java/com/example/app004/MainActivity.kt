@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         list = findViewById(R.id.rv_list)
-        val items = arrayOf("Коля", "Сергей", "Андрей", "Женя")
-        val adapter = ItemsAdapter(items)
+        val adapter = ItemsAdapter()
+        adapter.items = arrayOf("Коля", "Сергей", "Андрей", "Женя")
         list.hasFixedSize()
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
